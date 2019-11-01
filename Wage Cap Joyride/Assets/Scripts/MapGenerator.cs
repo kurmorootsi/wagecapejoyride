@@ -34,14 +34,19 @@ public class MapGenerator : MonoBehaviour
         obstacle2 = GenerateObstacle(obstacle1.transform.position.x);
         obstacle3 = GenerateObstacle(obstacle2.transform.position.x);
         obstacle4 = GenerateObstacle(obstacle3.transform.position.x);
-
-        GameObject GenerateObstacle(float referenceX){
-        	GameObject obstacle = GameObject.Instantiate(
-        	obstaclePrefab);
-        obstacle.transform.position = new Vector3(referenceX + 10f + 
-        	Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(minObstacleY, maxObstacleY),0);
-        	return obstacle;
+    }
+    
+    GameObject GenerateObstacle(float referenceX){
+            GameObject obstacle = GameObject.Instantiate(
+            obstaclePrefab);
+            setTransform(obstacle, referenceX);
+        return obstacle;
         }
+
+    void setTransform(GameObject obstacle, float referenceX){
+    	obstacle.transform.position = new Vector3(referenceX + 10f + 
+        	Random.Range(minObstacleSpacing, maxObstacleSpacing), Random.Range(minObstacleY, maxObstacleY),0);
+        	//obstacle.transform.localScale = new Vector3(obstacle.transform.localScale.x, Random.Range(minObstacleScaleY, maxObstacleY), obstacle.transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -57,6 +62,14 @@ public class MapGenerator : MonoBehaviour
             tempFloor.transform.position += new Vector3(80, 0, 0);
             ceiling = tempCeiling;
             floor = tempFloor;
+        }
+        if(player.transform.position.x > obstacle2.transform.position.x){
+        	var tempObstacle = obstacle1;
+        	obstacle1 = obstacle2;
+        	obstacle2 = obstacle3;
+        	obstacle3 = obstacle4;
+        	setTransform(tempObstacle, obstacle3.transform.position.x);
+        	obstacle4 = tempObstacle;
         }
     }
 }
