@@ -1,28 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour{
 
     Rigidbody body;
 
     public bool gameOver = false;
 
-    void Start()
-    {
+    void Start(){
         body = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
-    {
-        if(gameOver){
-
-            if (Input.GetMouseButtonDown(0)){
+    void FixedUpdate(){
+        if (gameOver) {
+            
+            if (Input.GetMouseButtonDown(0)) {
                 SceneManager.LoadScene("Game");
             }
             return;
         }
+
         if (Input.GetMouseButton(0))
         {
             body.AddForce(new Vector3(0, 50, 0), ForceMode.Acceleration);
@@ -31,8 +30,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggeredEnter(Collider collider){
-    	gameOver = true;
-    	body.isKinematic = true;
+    void OnTriggerEnter(Collider collider) {
+        gameOver = true;
+        body.isKinematic = true;
     }
 }
