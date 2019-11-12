@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
-
-	public Player player;
+	public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +15,6 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player.gameOver) transform.position += new Vector3(5f * Time.deltaTime, 0, 0);
-        
+		transform.Translate(-speed * Time.deltaTime, 0, 0);
     }
 }

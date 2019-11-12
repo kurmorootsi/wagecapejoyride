@@ -5,33 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour{
 
-    Rigidbody body;
+	public Rigidbody2D rb;
+	public ParticleSystem ps;
+	public float upSpeed;
 
-    public bool gameOver = false;
+	private ParticleSystem.EmissionModule em;
 
-    void Start(){
-        body = GetComponent<Rigidbody>();
+    void Start()
+	{
+		em = ps.emission;
     }
 
-    void FixedUpdate(){
-        if (gameOver) {
-            
-            if (Input.GetMouseButtonDown(0)) {
-                SceneManager.LoadScene("Game");
-            }
-            return;
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            body.AddForce(new Vector3(0, 50, 0), ForceMode.Acceleration);
-        } else if (Input.GetMouseButtonUp(0)) {
-            body.velocity *= 0.25f;
-        }
-    }
-
-    void OnTriggerEnter(Collider collider) {
-        gameOver = true;
-        body.isKinematic = true;
-    }
+	private void Update()
+	{
+		if (Input.GetMouseButton(0))
+		{
+			rb.AddForce(new Vector2(0, upSpeed * (Time.timeScale)));
+			em.enabled = true;
+		} else
+		{
+			em.enabled = false;
+		}
+		
+	}
 }
