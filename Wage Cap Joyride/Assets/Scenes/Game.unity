@@ -5165,6 +5165,7 @@ MonoBehaviour:
   spawnChance: 50
   obstPrefab: {fileID: 5735647302995055833, guid: be45809741f1f89459dc803bfab750d6,
     type: 3}
+  c: {fileID: 1651359524}
 --- !u!1 &1144095794
 GameObject:
   m_ObjectHideFlags: 0
@@ -5408,6 +5409,8 @@ MonoBehaviour:
   rb: {fileID: 1651359523}
   ps: {fileID: 575517690}
   upSpeed: 10
+  isPlaying: 1
+  playButton: {fileID: 0}
 --- !u!1 &1850337736
 GameObject:
   m_ObjectHideFlags: 0
@@ -5455,6 +5458,7 @@ MonoBehaviour:
   t: {fileID: 1850337737}
   speed: 3
   difficulty: 0
+  c: {fileID: 1651359524}
 --- !u!1 &1904514918
 GameObject:
   m_ObjectHideFlags: 0

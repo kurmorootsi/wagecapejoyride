@@ -9,19 +9,30 @@ public class ObstacleSpawner : MonoBehaviour
 
 	public float spawnChance;
 	public GameObject obstPrefab;
-    // Update is called once per frame
+
+    public Player c;
     void Update()
     {
-		secondsLeftTillSpawn -= Time.deltaTime;
+        if (c.isPlaying)
+        {
+            secondsLeftTillSpawn -= Time.deltaTime;
 
-		int temp = Random.Range(0, 100);
+            int temp = Random.Range(0, 100);
 
-		if (temp <= spawnChance && secondsLeftTillSpawn <= 0)
-		{
+            if (temp <= spawnChance && secondsLeftTillSpawn <= 0)
+            {
 
-			Instantiate(obstPrefab, new Vector3(15f, Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0), Quaternion.identity, transform);
+                Instantiate(obstPrefab, new Vector3(15f, Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0), Quaternion.identity, transform);
 
-			secondsLeftTillSpawn = spawnSpeed;
-		}
+                secondsLeftTillSpawn = spawnSpeed;
+            }
+        } else if (transform.childCount > 0)
+        {
+            foreach(Transform t in transform)
+            {
+                Destroy(t.gameObject);
+            }
+        }
+		
     }
 }
