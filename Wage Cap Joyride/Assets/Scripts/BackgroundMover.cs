@@ -20,7 +20,7 @@ public class BackgroundMover : MonoBehaviour
 
             if (t.transform.position.x < -51.66)
             {
-                t.transform.position = new Vector3(20.37f, 0, 10f);
+                t.transform.position = new Vector3(1.9f, 0, 10f);
             }
         }
 		
