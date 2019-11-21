@@ -5165,6 +5165,8 @@ MonoBehaviour:
   spawnChance: 50
   obstPrefab: {fileID: 5735647302995055833, guid: be45809741f1f89459dc803bfab750d6,
     type: 3}
+  obstPrefab2: {fileID: 2136644584804229908, guid: cc767ba59e32249c1a197e017b367485,
+    type: 3}
   c: {fileID: 1651359524}
 --- !u!1 &1144095794
 GameObject:
@@ -5409,6 +5411,7 @@ MonoBehaviour:
   rb: {fileID: 1651359523}
   ps: {fileID: 575517690}
   upSpeed: 10
+  obstacle: {fileID: 0}
   isPlaying: 1
   playButton: {fileID: 0}
 --- !u!1 &1850337736

@@ -9,6 +9,7 @@ public class ObstacleSpawner : MonoBehaviour
 
 	public float spawnChance;
 	public GameObject obstPrefab;
+    public GameObject obstPrefab2;
 
     public Player c;
     void Update()
@@ -21,8 +22,16 @@ public class ObstacleSpawner : MonoBehaviour
 
             if (temp <= spawnChance && secondsLeftTillSpawn <= 0)
             {
+                float number = Random.Range(-1f, 1f);
 
-                Instantiate(obstPrefab, new Vector3(15f, Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0), Quaternion.identity, transform);
+                if (number > 0)
+                {
+                    Instantiate(obstPrefab, new Vector3(15f, Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0), Quaternion.identity, transform);
+                } else
+                {
+                    Instantiate(obstPrefab2, new Vector3(15f, Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0), Quaternion.identity, transform);
+
+                }
 
                 secondsLeftTillSpawn = spawnSpeed;
             }
