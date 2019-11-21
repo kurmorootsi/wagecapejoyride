@@ -9,6 +9,9 @@ public class Player : MonoBehaviour{
 	public ParticleSystem ps;
 	public float upSpeed;
 
+	[SerializeField]
+	private GameObject obstacle;
+
 	private ParticleSystem.EmissionModule em;
 
     public bool isPlaying = false;
@@ -37,10 +40,12 @@ public class Player : MonoBehaviour{
 
 
 	private void onCollisionEnter2D(Collision2D collision){
+		Debug.Log("tere");
 		if(collision.gameObject.tag == "Obstacle"){
             isPlaying = false;
             playButton.SetActive(true);
             Time.timeScale = 1;
+			Debug.Log("ss");
 		}
 	}
     public GameObject playButton;
