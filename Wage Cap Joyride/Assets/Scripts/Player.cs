@@ -16,8 +16,12 @@ public class Player : MonoBehaviour{
 	private ParticleSystem.EmissionModule em;
     public float score;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI achCheers;
+    public GameObject achPanel;
 
     public bool isPlaying = false;
+
+    public List<Achievement> achList = new List<Achievement>();
 
     void Start()
 	{
@@ -28,6 +32,16 @@ public class Player : MonoBehaviour{
 	{
         if (isPlaying)
         {
+            foreach(Achievement ach in achList)
+            {
+                if (score > ach.threshold && ach.reached == false)
+                {
+                    achPanel.GetComponent<Animator>().SetTrigger("Move");
+                    achCheers.text = ach.cheers;
+                    ach.reached = true;
+                }
+            }
+
             score += Time.deltaTime * 20f;
             scoreText.text = Mathf.RoundToInt(score).ToString();
             if (Input.GetMouseButton(0))
@@ -49,12 +63,10 @@ public class Player : MonoBehaviour{
 
 
 	private void onCollisionEnter2D(Collision2D collision){
-		Debug.Log("tere");
 		if(collision.gameObject.tag == "Obstacle"){
             isPlaying = false;
             playButton.SetActive(true);
             Time.timeScale = 1;
-			Debug.Log("ss");
 		}
 	}
     public GameObject playButton;
@@ -62,4 +74,12 @@ public class Player : MonoBehaviour{
         isPlaying = true;
         playButton.SetActive(false);
 	}
+
+    [System.Serializable]
+    public class Achievement
+    {
+        public string cheers;
+        public int threshold;
+        public bool reached = false;
+    }
 }
