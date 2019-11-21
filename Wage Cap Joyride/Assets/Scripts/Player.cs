@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : MonoBehaviour{
 
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour{
 	private GameObject obstacle;
 
 	private ParticleSystem.EmissionModule em;
+    public float score;
+    public TextMeshProUGUI scoreText;
 
     public bool isPlaying = false;
 
@@ -25,6 +28,8 @@ public class Player : MonoBehaviour{
 	{
         if (isPlaying)
         {
+            score += Time.deltaTime * 20f;
+            scoreText.text = Mathf.RoundToInt(score).ToString();
             if (Input.GetMouseButton(0))
             {
                 rb.AddForce(new Vector2(0, upSpeed * (Time.timeScale)));
@@ -35,6 +40,10 @@ public class Player : MonoBehaviour{
                 em.enabled = false;
             }
 
+        } else
+        {
+            score = 0;
+            scoreText.text = "0";
         }
 	}
 
