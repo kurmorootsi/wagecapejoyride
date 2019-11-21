@@ -39,6 +39,7 @@ public class Player : MonoBehaviour{
 	private void onCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.tag == "Obstacle"){
             isPlaying = false;
+            playButton.SetActive(true);
             Time.timeScale = 1;
 		}
 	}
