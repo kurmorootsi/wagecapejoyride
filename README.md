@@ -10,6 +10,9 @@ Ultimately, she is successful and achieves her goal but in the game, it also tur
 ## Team members
 
 Team lead(s) - Daisy Pukkonen and Marie Vainumets
+
 Developers - Kurmo Rootsi and Elinor Roosalu
+
 Designer - Helga Johanna Leppoja
+
 Researchers - Ken-Maik Viesemann and Marie Vainumets
