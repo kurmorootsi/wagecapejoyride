@@ -15,16 +15,17 @@ public class Player : MonoBehaviour{
 
 	private ParticleSystem.EmissionModule em;
     public float score;
+    public TextMeshProUGUI highScore;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI achCheers;
     public GameObject achPanel;
 
     public bool isPlaying = false;
 
-    public List<Achievement> achList = new List<Achievement>();
 
     void Start()
 	{
+        highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
 		em = ps.emission;
     }
 
@@ -32,16 +33,6 @@ public class Player : MonoBehaviour{
 	{
         if (isPlaying)
         {
-            foreach(Achievement ach in achList)
-            {
-                if (score > ach.threshold && ach.reached == false)
-                {
-                    achPanel.GetComponent<Animator>().SetTrigger("Move");
-                    achCheers.text = ach.cheers;
-                    ach.reached = true;
-                }
-            }
-
             score += Time.deltaTime * 20f;
             scoreText.text = Mathf.RoundToInt(score).ToString();
             if (Input.GetMouseButton(0))
@@ -52,6 +43,12 @@ public class Player : MonoBehaviour{
             else
             {
                 em.enabled = false;
+            }
+
+            if (score > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", Mathf.RoundToInt(score));
+                highScore.text = Mathf.RoundToInt(score).ToString();
             }
 
         } else
@@ -65,21 +62,10 @@ public class Player : MonoBehaviour{
 	private void onCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.tag == "Obstacle"){
             isPlaying = false;
-            playButton.SetActive(true);
             Time.timeScale = 1;
 		}
 	}
-    public GameObject playButton;
 	public void SetUpGame(){
         isPlaying = true;
-        playButton.SetActive(false);
 	}
-
-    [System.Serializable]
-    public class Achievement
-    {
-        public string cheers;
-        public int threshold;
-        public bool reached = false;
-    }
 }

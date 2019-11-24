@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-	private float secondsLeftTillSpawn = 0;
-	public float spawnSpeed = 30;
+    private float secondsLeftTillSpawn = 0;
+    public float spawnSpeed = 30;
 
-	public float spawnChance;
-	public GameObject obstPrefab;
+    public float spawnChance;
+    public GameObject obstPrefab;
     public GameObject obstPrefab2;
 
     public Player c;
+
     void Update()
     {
         if (c.isPlaying)
