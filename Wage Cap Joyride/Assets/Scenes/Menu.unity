@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 138034099}
   - component: {fileID: 138034101}
   - component: {fileID: 138034100}
-  - component: {fileID: 138034102}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -194,25 +193,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138034098}
   m_CullTransparentMesh: 0
---- !u!95 &138034102
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138034098}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 99822c91e22ce467f8d659d0ea5547f2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &390614482
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +746,7 @@ GameObject:
   - component: {fileID: 2072355916}
   - component: {fileID: 2072355915}
   m_Layer: 5
-  m_Name: Highscore
+  m_Name: HowToPlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,7 +800,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 4d5472405d386419a874baa53eb98ae0, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: cdbf991ccc0f64f0a9b2a40bb5d0b000, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -833,7 +813,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2072355916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776990675}
+        m_MethodName: LearnToPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2072355916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,7 +843,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8063d3de7cdce4cc680321c8d5b1c36b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0685207e96db74554b9533d9806e4a96, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

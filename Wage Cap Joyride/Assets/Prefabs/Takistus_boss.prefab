@@ -163,3 +163,6 @@ MonoBehaviour:
   speed: 3.5
   speedY: 3.5
   position: 0
+  scoreManager: {fileID: 1164034400361112250, guid: cf7c8d9de41844edfbeda84c6bf7212f,
+    type: 3}
+  level: 0

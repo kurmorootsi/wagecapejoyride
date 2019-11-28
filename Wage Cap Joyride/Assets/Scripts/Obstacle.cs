@@ -9,26 +9,36 @@ public class Obstacle : MonoBehaviour
     public float speedY;
     public float position;
 
-	// Start is called before the first frame update
-	void Start()
-	{
 
-	}
+    [SerializeField]
+    private ScoreManager scoreManager;
+
+    public int level;
+
+    // Start is called before the first frame update
+    void Start()
+	{
+        this.scoreManager = FindObjectOfType<ScoreManager>();
+        this.level = scoreManager.GetComponent<ScoreManager>().getLevel();
+    }
 
 	// Update is called once per frame
 	void Update()
 	{
         position = transform.localPosition.y;
 
-
-        if (position >= 4)
+        if (this.level > 1)
         {
-            speedY = -speedY;
-        } else if (position <= -2.4)
-        {
-            speedY = -speedY;
+            if (position >= 4)
+            {
+                speedY = -speedY;
+            }
+            else if (position <= -2.4)
+            {
+                speedY = -speedY;
+            }
+            transform.Translate(-speed * Time.deltaTime, speedY * Time.deltaTime, 0);
         }
-        transform.Translate(-speed * Time.deltaTime, speedY * Time.deltaTime, 0);
 
     }
 

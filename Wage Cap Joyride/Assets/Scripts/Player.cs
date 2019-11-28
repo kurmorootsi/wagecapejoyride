@@ -10,10 +10,14 @@ public class Player : MonoBehaviour{
 	public ParticleSystem ps;
 	public float upSpeed;
 
-	[SerializeField]
-	private GameObject obstacle;
+    [SerializeField]
+    private GameObject obstacle;
 
-	private ParticleSystem.EmissionModule em;
+    [SerializeField]
+    private ScoreManager scoreManager;
+
+
+    private ParticleSystem.EmissionModule em;
     public float score;
     public TextMeshProUGUI highScore;
     public TextMeshProUGUI scoreText;
@@ -27,6 +31,12 @@ public class Player : MonoBehaviour{
 	{
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
 		em = ps.emission;
+
+
+        this.scoreManager = FindObjectOfType<ScoreManager>();
+
+
+        this.score = scoreManager.getScore();
     }
 
 	private void Update()
@@ -34,7 +44,7 @@ public class Player : MonoBehaviour{
         if (isPlaying)
         {
             score += Time.deltaTime * 20f;
-            scoreText.text = Mathf.RoundToInt(score).ToString();
+            scoreText.text = ((int)score).ToString();
             if (Input.GetMouseButton(0))
             {
                 rb.AddForce(new Vector2(0, upSpeed * (Time.timeScale)));
@@ -47,8 +57,8 @@ public class Player : MonoBehaviour{
 
             if (score > PlayerPrefs.GetInt("HighScore", 0))
             {
-                PlayerPrefs.SetInt("HighScore", Mathf.RoundToInt(score));
-                highScore.text = Mathf.RoundToInt(score).ToString();
+                PlayerPrefs.SetInt("HighScore", (int)score);
+                highScore.text = ((int)score).ToString();
             }
 
         } else
@@ -56,7 +66,9 @@ public class Player : MonoBehaviour{
             score = 0;
             scoreText.text = "0";
         }
-	}
+
+        scoreManager.GetComponent<ScoreManager>().setScore(score);
+    }
 
 
 	private void onCollisionEnter2D(Collision2D collision){
