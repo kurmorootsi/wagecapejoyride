@@ -16,6 +16,12 @@ public class Player : MonoBehaviour{
     [SerializeField]
     private ScoreManager scoreManager;
 
+	[SerializeField]
+	public int powerUp;
+
+	[SerializeField]
+	public bool isPowerupActivated;
+
 
     private ParticleSystem.EmissionModule em;
     public float score;
@@ -24,7 +30,18 @@ public class Player : MonoBehaviour{
     public TextMeshProUGUI achCheers;
     public GameObject achPanel;
 
-    public bool isPlaying = false;
+	public SpriteRenderer sr;
+
+	[SerializeField]
+	public Sprite powerup1;
+
+	[SerializeField]
+	public Sprite powerup2;
+
+	[SerializeField]
+	public Sprite powerupDefault;
+
+	public bool isPlaying = false;
 
 
     void Start()
@@ -43,7 +60,14 @@ public class Player : MonoBehaviour{
 	{
         if (isPlaying)
         {
-            score += Time.deltaTime * 20f;
+			if (isPowerupActivated && powerUp == 2)
+			{
+				score += Time.deltaTime * 40f;
+			} else
+			{
+				score += Time.deltaTime * 20f;
+			}
+            
             scoreText.text = ((int)score).ToString();
             if (Input.GetMouseButton(0))
             {
@@ -70,9 +94,33 @@ public class Player : MonoBehaviour{
         scoreManager.GetComponent<ScoreManager>().setScore(score);
     }
 
+	public void setPowerUp(int type)
+	{
+		this.powerUp = type;
+
+		if (type == 1)
+		{
+			sr.sprite = this.powerup1;
+		}
+		else if (type == 2)
+		{
+			sr.sprite = this.powerup2;
+		}
+	}
+
+	public void activatePowerup(bool type)
+	{
+		this.isPowerupActivated = type;
+		if (type == false)
+		{
+			this.powerUp = 0;
+			sr.sprite = this.powerupDefault;
+		}
+	}
+
 
 	private void onCollisionEnter2D(Collision2D collision){
-		if(collision.gameObject.tag == "Obstacle"){
+		if(collision.gameObject.tag == "Obstacle" && this.powerUp != 2){
             isPlaying = false;
             Time.timeScale = 1;
 		}
