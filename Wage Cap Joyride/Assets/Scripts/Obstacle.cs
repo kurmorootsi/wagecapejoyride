@@ -27,20 +27,27 @@ public class Obstacle : MonoBehaviour
 	{
         position = transform.localPosition.y;
 
-        if (this.level > 1)
+		if (position >= 4)
         {
-            if (position >= 4)
-            {
-                speedY = -speedY;
-            }
-            else if (position <= -2.4)
-            {
-                speedY = -speedY;
-            }
-            transform.Translate(-speed * Time.deltaTime, speedY * Time.deltaTime, 0);
+            speedY = -speedY;
+        }
+        else if (position <= -3)
+        {
+            speedY = -speedY;
         }
 
-    }
+		if (this.level == 1)
+		{
+			transform.Translate(-speed * Time.deltaTime, 0, 0);
+		} else if (this.level == 2)
+		{
+			transform.Translate(-speed * Time.deltaTime, speedY * Time.deltaTime, 0);
+		} else if (this.level >= 3)
+		{
+			transform.Translate(-speed * Time.deltaTime, speedY * Time.deltaTime, 0);
+		}
+
+	}
 
 	public void OnTriggerEnter2D(Collider2D other)
 	{

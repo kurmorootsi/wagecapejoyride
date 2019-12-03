@@ -28,7 +28,6 @@ public class ObstacleSpawner : MonoBehaviour
         this.level = scoreManager.getLevel();
         if (c.isPlaying)
         {
-            Debug.Log("ops 2");
             secondsLeftTillSpawn -= Time.deltaTime;
 
             int temp = Random.Range(0, 100);
@@ -39,12 +38,10 @@ public class ObstacleSpawner : MonoBehaviour
                 
                 if (number > 0)
                 {
-                    Debug.Log("oih 2");
-                    Instantiate(obstPrefab, new Vector3(15f, Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0), Quaternion.identity, transform);
+                    Instantiate(obstPrefab, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
                 } else
                 {
-                    Debug.Log("oih");
-                    Instantiate(obstPrefab2, new Vector3(15f, Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0), Quaternion.identity, transform);
+                    Instantiate(obstPrefab2, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
 
                 }
 
