@@ -37,6 +37,11 @@ public class PowerupManager : MonoBehaviour
 		this.scoreManager = FindObjectOfType<ScoreManager>();
 	}
 
+	public int GetActive()
+	{
+		return this.typeActive;
+	}
+
 	public void SetActive(int type)
 	{
 		if (type == 1)

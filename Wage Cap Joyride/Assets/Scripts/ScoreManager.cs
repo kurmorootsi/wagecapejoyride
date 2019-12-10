@@ -5,19 +5,27 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
 
+	[SerializeField]
+	private ObstacleSpawner upSpawner;
 
-    [SerializeField]
+	[SerializeField]
     protected float score;
 
     [SerializeField]
     protected int level;
 
-    public void Update()
+	private void Start()
+	{
+		this.upSpawner = FindObjectOfType<ObstacleSpawner>();
+	}
+
+	public void Update()
     {
         if (score >= 500f && score < 1000f)
         {
             this.level = 2;
-        } else if (score >= 1000f && score < 1500f)
+
+		} else if (score >= 1000f && score < 1500f)
         {
             this.level = 3;
         }
@@ -34,7 +42,16 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void setScore(float x)
+	public void deleteCurrentEnemies()
+	{
+		foreach (Obstacle x in upSpawner.transform)
+		{
+			GameObject.Destroy(x.gameObject);
+		}
+	}
+
+
+	public void setScore(float x)
     {
         this.score = x;
     }
