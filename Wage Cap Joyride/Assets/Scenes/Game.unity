@@ -5598,6 +5598,20 @@ MonoBehaviour:
     type: 3}
   obstPrefab2: {fileID: 2136644584804229908, guid: cc767ba59e32249c1a197e017b367485,
     type: 3}
+  obstPrefab3: {fileID: 1090148892314032134, guid: e0b85463013924dc296ffed4acc1e0d9,
+    type: 3}
+  obstPrefab4: {fileID: 4265191164364606634, guid: 848bf49cec11d472f90f23a757e78b0c,
+    type: 3}
+  obstPrefab5: {fileID: 4858489638282791574, guid: fca817b16a8ff4be29fdeb24458301f3,
+    type: 3}
+  obstPrefab6: {fileID: 1394631976231395491, guid: 64b6569b7b1d841d1a58be04440f7f92,
+    type: 3}
+  obstPrefab7: {fileID: 8849055202802821355, guid: 48a0c52f116d84c93b048a2683f2001c,
+    type: 3}
+  obstPrefab8: {fileID: 3793225672614089626, guid: 727aacca6c4d94601af4f14b361a1718,
+    type: 3}
+  obstPrefab9: {fileID: 4522212586805038939, guid: 98509921b71454f4f931039fd866dfbb,
+    type: 3}
   scoreManager: {fileID: 0}
   level: 0
   c: {fileID: 1651359524}

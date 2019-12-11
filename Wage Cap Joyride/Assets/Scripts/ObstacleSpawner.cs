@@ -10,6 +10,13 @@ public class ObstacleSpawner : MonoBehaviour
     public float spawnChance;
     public GameObject obstPrefab;
     public GameObject obstPrefab2;
+    public GameObject obstPrefab3;
+    public GameObject obstPrefab4;
+    public GameObject obstPrefab5;
+    public GameObject obstPrefab6;
+    public GameObject obstPrefab7;
+    public GameObject obstPrefab8;
+    public GameObject obstPrefab9;
 
     [SerializeField]
     private ScoreManager scoreManager;
@@ -34,14 +41,48 @@ public class ObstacleSpawner : MonoBehaviour
 
             if (temp <= spawnChance && secondsLeftTillSpawn <= 0)
             {
-                float number = Random.Range(-1f, 1f);
+                int number = Random.Range(1, 10);
                 
-                if (number > 0)
+                if (number == 1)
                 {
                     Instantiate(obstPrefab, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
-                } else
+                }
+                else if (number == 2)
                 {
                     Instantiate(obstPrefab2, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+                }
+                else if (number == 3)
+                {
+                    Instantiate(obstPrefab3, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+                }
+                else if (number == 4)
+                {
+                    Instantiate(obstPrefab4, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+
+                }
+                else if (number == 5)
+                {
+                    Instantiate(obstPrefab5, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+
+                }
+                else if (number == 6)
+                {
+                    Instantiate(obstPrefab6, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+
+                }
+                else if (number == 7)
+                {
+                    Instantiate(obstPrefab7, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+
+                }
+                else if (number == 8)
+                {
+                    Instantiate(obstPrefab8, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+
+                }
+                else if (number == 9)
+                {
+                    Instantiate(obstPrefab9, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
 
                 }
 
