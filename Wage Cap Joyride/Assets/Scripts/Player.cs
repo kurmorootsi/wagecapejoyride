@@ -60,7 +60,7 @@ public class Player : MonoBehaviour{
 	{
         if (isPlaying)
         {
-			if (isPowerupActivated && powerUp == 2)
+			if (isPowerupActivated && powerUp == 1)
 			{
 				score += Time.deltaTime * 40f;
 			} else
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour{
 
 
 	private void onCollisionEnter2D(Collision2D collision){
-		if(collision.gameObject.tag == "Obstacle" && this.powerUp != 2){
+		if(collision.gameObject.tag == "Obstacle" && this.powerUp != 1){
             isPlaying = false;
             Time.timeScale = 1;
 		}
@@ -128,4 +128,5 @@ public class Player : MonoBehaviour{
 	public void SetUpGame(){
         isPlaying = true;
 	}
+
 }
