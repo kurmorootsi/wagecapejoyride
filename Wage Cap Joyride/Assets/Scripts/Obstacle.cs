@@ -6,21 +6,34 @@ using UnityEngine.SceneManagement;
 public class Obstacle : MonoBehaviour
 {
 	public float speed;
-    public float speedY;
-    public float position;
+	public float speedY;
+
+	public float pos_speedY;
+	public float neg_speedY;
+
+
+	public float position;
 
 
     [SerializeField]
     private ScoreManager scoreManager;
 
-    public int level;
+	[SerializeField]
+	private PowerupManager PowerupManager;
 
-    // Start is called before the first frame update
-    void Start()
+	public int level;
+
+	// Start is called before the first frame update
+	void Start()
 	{
         this.scoreManager = FindObjectOfType<ScoreManager>();
         this.level = scoreManager.GetComponent<ScoreManager>().getLevel();
-    }
+		this.PowerupManager = FindObjectOfType<PowerupManager>();
+
+		pos_speedY = speedY;
+		neg_speedY = -speedY;
+
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -29,12 +42,31 @@ public class Obstacle : MonoBehaviour
 
 		if (position >= 4)
         {
-            speedY = -speedY;
+            speedY = neg_speedY;
         }
         else if (position <= -3)
         {
-            speedY = -speedY;
+            speedY = pos_speedY;
         }
+
+		switch (this.level)
+		{
+			case 1:
+				this.speed = 3;
+				break;
+			case 2:
+				this.speed = 5;
+				break;
+			case 3:
+				this.speed = 7;
+				break;
+			case 4:
+				this.speed = 9;
+				break;
+			case 5:
+				this.speed = 12;
+				break;
+		}
 
 		if (this.level == 1)
 		{
@@ -51,6 +83,9 @@ public class Obstacle : MonoBehaviour
 
 	public void OnTriggerEnter2D(Collider2D other)
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+		if (this.PowerupManager.GetActive() != 2)
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+		}
 	}
 }

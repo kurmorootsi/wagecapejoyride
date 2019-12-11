@@ -28,7 +28,10 @@ public class Player : MonoBehaviour{
     public TextMeshProUGUI highScore;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI achCheers;
-    public GameObject achPanel;
+
+	public TextMeshProUGUI levelText;
+
+	public GameObject achPanel;
 
 	public SpriteRenderer sr;
 
@@ -67,8 +70,10 @@ public class Player : MonoBehaviour{
 			{
 				score += Time.deltaTime * 20f;
 			}
-            
-            scoreText.text = ((int)score).ToString();
+
+			levelText.text = ((int)scoreManager.getLevel()).ToString();
+
+			scoreText.text = ((int)score).ToString();
             if (Input.GetMouseButton(0))
             {
                 rb.AddForce(new Vector2(0, upSpeed * (Time.timeScale)));
@@ -122,7 +127,7 @@ public class Player : MonoBehaviour{
 	private void onCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.tag == "Obstacle" && this.powerUp != 1){
             isPlaying = false;
-            Time.timeScale = 1;
+			Time.timeScale = 1;
 		}
 	}
 	public void SetUpGame(){
