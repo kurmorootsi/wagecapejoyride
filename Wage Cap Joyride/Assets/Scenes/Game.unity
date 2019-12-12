@@ -6327,8 +6327,8 @@ MonoBehaviour:
   levelText: {fileID: 1556284680}
   achPanel: {fileID: 0}
   sr: {fileID: 1651359520}
-  powerup1: {fileID: 21300000, guid: 8f5e378dd3f85e34b8391747a511122f, type: 3}
-  powerup2: {fileID: 21300000, guid: 6c65a0551b9cc6e44ab1b9fd6e2ab27c, type: 3}
+  powerup1: {fileID: 21300000, guid: f2593344019344946bdf7e48c3ce9803, type: 3}
+  powerup2: {fileID: 21300000, guid: 5d09267a3e09a496c86b65c0af368dad, type: 3}
   powerupDefault: {fileID: 21300000, guid: 8355e065b2d744f55864f636d1ae8d1a, type: 3}
   isPlaying: 1
 --- !u!1 &1850337736
