@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
-    }
-
-    public void GoToMainMenu()
+    public void PlayGame2()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+    }
+
+    public void GoToMainMenu2()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
     }
 }
