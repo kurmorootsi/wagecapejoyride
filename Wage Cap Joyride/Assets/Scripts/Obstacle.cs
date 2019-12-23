@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
 	void Start()
 	{
         this.scoreManager = FindObjectOfType<ScoreManager>();
-        this.level = scoreManager.GetComponent<ScoreManager>().getLevel();
+
 		this.PowerupManager = FindObjectOfType<PowerupManager>();
 
 		pos_speedY = speedY;
@@ -38,7 +38,9 @@ public class Obstacle : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        position = transform.localPosition.y;
+		this.level = scoreManager.GetComponent<ScoreManager>().getLevel();
+
+		position = transform.localPosition.y;
 
 		if (position >= 4)
         {
