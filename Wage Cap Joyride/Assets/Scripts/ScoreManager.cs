@@ -21,19 +21,19 @@ public class ScoreManager : MonoBehaviour
 
 	public void Update()
     {
-        if (score >= 500f && score < 1000f)
+        if (score >= 1000f && score < 1200f)
         {
             this.level = 2;
 
-		} else if (score >= 1000f && score < 1500f)
+		} else if (score >= 2200f && score < 3700f)
         {
             this.level = 3;
         }
-        else if (score >= 1500f && score < 2000f)
+        else if (score >= 3700f && score < 5500f)
         {
             this.level = 4;
         }
-        else if (score >= 2000f)
+        else if (score >= 5500f)
         {
             this.level = 5;
         } else
