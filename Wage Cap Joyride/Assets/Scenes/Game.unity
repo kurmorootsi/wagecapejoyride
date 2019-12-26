@@ -5709,6 +5709,10 @@ MonoBehaviour:
     type: 3}
   obstPrefab9: {fileID: 4522212586805038939, guid: 98509921b71454f4f931039fd866dfbb,
     type: 3}
+  obstPrefab10: {fileID: 1664747301825321044, guid: a376950721dd04b82a8cab3890d2b6d6,
+    type: 3}
+  obstPrefab11: {fileID: 4479561207765710284, guid: bc91eb84976b3449c8c1d8b2cfbdafeb,
+    type: 3}
   scoreManager: {fileID: 0}
   level: 0
   c: {fileID: 1651359524}

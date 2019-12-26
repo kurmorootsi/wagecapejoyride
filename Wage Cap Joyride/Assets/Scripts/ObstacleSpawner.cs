@@ -17,6 +17,8 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject obstPrefab7;
     public GameObject obstPrefab8;
     public GameObject obstPrefab9;
+    public GameObject obstPrefab10;
+    public GameObject obstPrefab11;
 
     [SerializeField]
     private ScoreManager scoreManager;
@@ -41,7 +43,7 @@ public class ObstacleSpawner : MonoBehaviour
 
             if (temp <= spawnChance && secondsLeftTillSpawn <= 0)
             {
-                int number = Random.Range(1, 10);
+                int number = Random.Range(1, 12);
                 
                 if (number == 1)
                 {
@@ -83,6 +85,16 @@ public class ObstacleSpawner : MonoBehaviour
                 else if (number == 9)
                 {
                     Instantiate(obstPrefab9, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+
+                }
+                else if (number == 10)
+                {
+                    Instantiate(obstPrefab10, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
+
+                }
+                else if (number == 11)
+                {
+                    Instantiate(obstPrefab11, new Vector3(15f, Random.Range(transform.position.y - 3.5f, transform.position.y + 4f), 0), Quaternion.identity, transform);
 
                 }
 
