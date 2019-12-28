@@ -71,9 +71,11 @@ public class Player : MonoBehaviour{
 				score += Time.deltaTime * 20f;
 			}
 
-			levelText.text = ((int)scoreManager.getLevel()).ToString();
+			levelText.text = scoreManager.getLevelText();
 
 			scoreText.text = ((int)score).ToString();
+
+
             if (Input.GetMouseButton(0))
             {
                 rb.AddForce(new Vector2(0, upSpeed * (Time.timeScale)));

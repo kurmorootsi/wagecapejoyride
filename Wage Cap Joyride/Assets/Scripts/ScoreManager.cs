@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
 
 	public void Update()
     {
-        if (score >= 1000f && score < 1200f)
+        if (score >= 1000f && score < 2200f)
         {
             this.level = 2;
 
@@ -62,8 +62,26 @@ public class ScoreManager : MonoBehaviour
         return this.score;
     }
 
-    public int getLevel()
-    {
-        return this.level;
-    }
+	public int getLevel()
+	{
+		return this.level;
+	}
+
+	public string getLevelText()
+	{
+		switch(this.level)
+		{
+			case 1:
+				return "Junior Developer";
+			case 2:
+				return "Software Engineer";
+			case 3:
+				return "Senior Software Engineer";
+			case 4:
+				return "Lead Software Engineer";
+			case 5:
+				return "CTO";
+		}
+		return "";
+	}
 }
