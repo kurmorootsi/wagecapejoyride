@@ -38,6 +38,8 @@ public class Player : MonoBehaviour{
 	[SerializeField]
 	public Sprite powerup1;
 
+
+
 	[SerializeField]
 	public Sprite powerup2;
 

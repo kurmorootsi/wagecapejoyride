@@ -96,9 +96,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.5
   speedY: 3.5
+  pos_speedY: 0
+  neg_speedY: 0
   position: 0
+  FailGameCanvas: {fileID: 0}
   scoreManager: {fileID: 1164034400361112250, guid: cf7c8d9de41844edfbeda84c6bf7212f,
     type: 3}
+  PowerupManager: {fileID: 0}
   level: 0
 --- !u!60 &7681812947836859725
 PolygonCollider2D:

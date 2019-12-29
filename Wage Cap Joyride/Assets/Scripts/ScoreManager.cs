@@ -14,6 +14,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     protected int level;
 
+
+	[SerializeField]
+	public GameObject FailGameCanvas;
+
 	private void Start()
 	{
 		this.upSpawner = FindObjectOfType<ObstacleSpawner>();
@@ -65,6 +69,12 @@ public class ScoreManager : MonoBehaviour
 	public int getLevel()
 	{
 		return this.level;
+	}
+
+	public void FailGame()
+	{
+		FailGameCanvas.active = true;
+		Time.timeScale = 0;
 	}
 
 	public string getLevelText()

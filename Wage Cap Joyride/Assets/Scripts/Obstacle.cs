@@ -15,7 +15,7 @@ public class Obstacle : MonoBehaviour
 	public float position;
 
 
-    [SerializeField]
+	[SerializeField]
     private ScoreManager scoreManager;
 
 	[SerializeField]
@@ -87,7 +87,7 @@ public class Obstacle : MonoBehaviour
 	{
 		if (this.PowerupManager.GetActive() != 2)
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+			scoreManager.FailGame();
 		}
 	}
 }
