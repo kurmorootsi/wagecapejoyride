@@ -640,8 +640,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -95, y: -98}
-  m_SizeDelta: {x: 162.1, y: 76.1}
+  m_AnchoredPosition: {x: -96.3, y: -93.6}
+  m_SizeDelta: {x: 170.12, y: 46.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251586973
 MonoBehaviour:
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 72154fbe1e9b142a68798e4e4e43614e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a7c17e8a3bb58041ba47ab74e25923f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1243,7 +1243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f52a920f02466d348b269a5699ca8405, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7110,8 +7110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 88.4, y: -98}
-  m_SizeDelta: {x: 176.8, y: 76.1}
+  m_AnchoredPosition: {x: 94.375, y: -93.6}
+  m_SizeDelta: {x: 203.25, y: 93.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1058662098
 MonoBehaviour:
@@ -8829,6 +8829,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1400702285}
   levelText: {fileID: 623162436}
+  failScoreText: {fileID: 1077725230}
+  failLevelText: {fileID: 402371245}
   scoreManager: {fileID: 0}
   score: 0
   level: 

@@ -9,6 +9,9 @@ public class PauseManager : MonoBehaviour
 	public TextMeshProUGUI scoreText;
 	public TextMeshProUGUI levelText;
 
+	public TextMeshProUGUI failScoreText;
+	public TextMeshProUGUI failLevelText;
+
 	[SerializeField]
 	private ScoreManager scoreManager;
 
@@ -33,6 +36,12 @@ public class PauseManager : MonoBehaviour
 
 		scoreText.text = score.ToString();
 		levelText.text = level.ToString();
+
+
+		failScoreText.text = score.ToString();
+		failLevelText.text = level.ToString();
+
+
 	}
 
 

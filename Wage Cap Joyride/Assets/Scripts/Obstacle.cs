@@ -23,6 +23,8 @@ public class Obstacle : MonoBehaviour
 
 	public int level;
 
+	public int random;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -32,6 +34,8 @@ public class Obstacle : MonoBehaviour
 
 		pos_speedY = speedY;
 		neg_speedY = -speedY;
+
+		this.random = Random.Range(0, 1);
 
 	}
 
@@ -75,10 +79,21 @@ public class Obstacle : MonoBehaviour
 			transform.Translate(-speed * Time.deltaTime, 0, 0);
 		} else if (this.level == 2)
 		{
-			transform.Translate(-speed * Time.deltaTime, speedY * Time.deltaTime, 0);
-		} else if (this.level >= 3)
+			transform.Translate(-speed * Time.deltaTime, 0, 0);
+		} else if (this.level == 3)
 		{
 			transform.Translate(-speed * Time.deltaTime, speedY * Time.deltaTime, 0);
+		} else if (this.level >= 4)
+		{
+			if (random == 1)
+			{
+				transform.Translate(-speed * Time.deltaTime, 0, 0);
+			}
+			else
+			{
+				transform.Translate(-speed * Time.deltaTime, speedY * Time.deltaTime, 0);
+			}
+
 		}
 
 	}
